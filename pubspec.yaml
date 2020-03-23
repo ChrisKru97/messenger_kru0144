@@ -10,11 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
   google_fonts: any
-#  cloud_firestore: 0.13.4
   firebase_auth: any
-#  firebase_analytics: any
-#  firebase_database: any
-#  firebase_storage: any
+  qr_flutter: any
+  shared_preferences: any
 
 dev_dependencies:
   flutter_test:
