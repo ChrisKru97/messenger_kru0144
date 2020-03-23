@@ -1,4 +1,6 @@
 PODS:
+  - device_info (0.0.1):
+    - Flutter
   - Firebase/Auth (6.20.0):
     - Firebase/CoreOnly
     - FirebaseAuth (~> 6.5.0)
@@ -61,6 +63,18 @@ PODS:
   - GoogleDataTransportCCTSupport (2.0.0):
     - GoogleDataTransport (~> 5.0)
     - nanopb (~> 0.3.901)
+  - GoogleMobileVision/BarcodeDetector (1.6.0):
+    - GoogleMobileVision/Detector (~> 1.6)
+  - GoogleMobileVision/Detector (1.6.0):
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+    - GTMSessionFetcher/Core (~> 1.1)
+    - Protobuf (~> 3.1)
+  - GoogleToolboxForMac/Defines (2.2.2)
+  - GoogleToolboxForMac/Logger (2.2.2):
+    - GoogleToolboxForMac/Defines (= 2.2.2)
+  - "GoogleToolboxForMac/NSData+zlib (2.2.2)":
+    - GoogleToolboxForMac/Defines (= 2.2.2)
   - GoogleUtilities/AppDelegateSwizzler (6.5.2):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
@@ -85,11 +99,17 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
+  - native_device_orientation (0.0.1):
+    - Flutter
   - path_provider (0.0.1):
     - Flutter
   - path_provider_macos (0.0.1):
     - Flutter
   - PromisesObjC (1.2.8)
+  - Protobuf (3.11.4)
+  - qr_mobile_vision (0.0.1):
+    - Flutter
+    - GoogleMobileVision/BarcodeDetector
   - shared_preferences (0.0.1):
     - Flutter
   - shared_preferences_macos (0.0.1):
@@ -98,13 +118,16 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+  - device_info (from `.symlinks/plugins/device_info/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_auth_web (from `.symlinks/plugins/firebase_auth_web/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_core_web (from `.symlinks/plugins/firebase_core_web/ios`)
   - Flutter (from `Flutter`)
+  - native_device_orientation (from `.symlinks/plugins/native_device_orientation/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - path_provider_macos (from `.symlinks/plugins/path_provider_macos/ios`)
+  - qr_mobile_vision (from `.symlinks/plugins/qr_mobile_vision/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
   - shared_preferences_macos (from `.symlinks/plugins/shared_preferences_macos/ios`)
   - shared_preferences_web (from `.symlinks/plugins/shared_preferences_web/ios`)
@@ -122,12 +145,17 @@ SPEC REPOS:
     - GoogleAppMeasurement
     - GoogleDataTransport
     - GoogleDataTransportCCTSupport
+    - GoogleMobileVision
+    - GoogleToolboxForMac
     - GoogleUtilities
     - GTMSessionFetcher
     - nanopb
     - PromisesObjC
+    - Protobuf
 
 EXTERNAL SOURCES:
+  device_info:
+    :path: ".symlinks/plugins/device_info/ios"
   firebase_auth:
     :path: ".symlinks/plugins/firebase_auth/ios"
   firebase_auth_web:
@@ -138,10 +166,14 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_core_web/ios"
   Flutter:
     :path: Flutter
+  native_device_orientation:
+    :path: ".symlinks/plugins/native_device_orientation/ios"
   path_provider:
     :path: ".symlinks/plugins/path_provider/ios"
   path_provider_macos:
     :path: ".symlinks/plugins/path_provider_macos/ios"
+  qr_mobile_vision:
+    :path: ".symlinks/plugins/qr_mobile_vision/ios"
   shared_preferences:
     :path: ".symlinks/plugins/shared_preferences/ios"
   shared_preferences_macos:
@@ -150,6 +182,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/shared_preferences_web/ios"
 
 SPEC CHECKSUMS:
+  device_info: cbf09d2ec12aa7110e0b09fabe54b5bd6c8efe74
   Firebase: fe7f74012742ab403451dd283e6909b8f1fb348a
   firebase_auth: 4ee3a54d3f09434c508c284a62f895a741a30637
   firebase_auth_web: 0955c07bcc06e84af76b9d4e32e6f31518f2d7de
@@ -166,12 +199,17 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: c29d405ff76e18551b5d158eaba6753fda8c7542
   GoogleDataTransport: a857c6a002d201b524dd4bc2ed7e7355ed07e785
   GoogleDataTransportCCTSupport: 32f75fbe904c82772fcbb6b6bd4525bfb6f2a862
+  GoogleMobileVision: 31cfb4319fd0c03d80105680abd9eae9da5e3b47
+  GoogleToolboxForMac: 800648f8b3127618c1b59c7f97684427630c5ea3
   GoogleUtilities: ad0f3b691c67909d03a3327cc205222ab8f42e0e
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  native_device_orientation: e24d00be281de72996640885d80e706142707660
   path_provider: fb74bd0465e96b594bb3b5088ee4a4e7bb1f2a9d
   path_provider_macos: f760a3c5b04357c380e2fddb6f9db6f3015897e0
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
+  Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
+  qr_mobile_vision: be1c3c9f00796683610e8bab9bbab2920dd4ffca
   shared_preferences: 430726339841afefe5142b9c1f50cb6bd7793e01
   shared_preferences_macos: f3f29b71ccbb56bf40c9dd6396c9acf15e214087
   shared_preferences_web: 141cce0c3ed1a1c5bf2a0e44f52d31eeb66e5ea9

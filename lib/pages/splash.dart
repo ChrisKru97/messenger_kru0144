@@ -1,31 +1,49 @@
-import 'dart:convert';
+import 'dart:io';
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
+import 'package:device_info/device_info.dart';
+import 'package:encrypt/encrypt.dart';
+import 'package:flutter/material.dart' hide Key;
 import 'package:messenger/components/logo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Splash extends StatelessWidget {
-  Splash(this.auth, this.prefFuture);
+  Splash(this.authFuture, this.prefFuture);
 
-  final FirebaseAuth auth;
+  final Future authFuture;
   final Future prefFuture;
 
-  Future<bool> initApp() async {
-    await auth.signInAnonymously();
+  Future<String> initApp() async {
+    await authFuture;
     SharedPreferences prefs = await prefFuture;
-    return prefs.getString('username') == null;
+    print(prefs.getString('friends'));
+    if (prefs.getString('key') == null) {
+      final deviceInfoPlugin = DeviceInfoPlugin();
+      final uuid = Platform.isAndroid
+          ? (await deviceInfoPlugin.androidInfo).androidId
+          : (await deviceInfoPlugin.iosInfo).identifierForVendor;
+      final key = Key.fromUtf8(
+          '${DateTime.now().microsecondsSinceEpoch}${DateTime.now().microsecondsSinceEpoch}');
+      final iv = IV.fromLength(16);
+      final encrypter = Encrypter(AES(key));
+      final encrypted = encrypter.encrypt(uuid, iv: iv);
+      prefs.setString('key', encrypted.base64);
+    }
+    if (prefs.getString('username') == null) {
+      return '/info';
+    }
+    if ([].length == 0) {
+      return '/qr';
+    }
+    return '/list';
   }
 
   @override
-  Widget build(BuildContext context) => FutureBuilder<bool>(
+  Widget build(BuildContext context) => FutureBuilder<String>(
       future: initApp(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          Future.delayed(
-              Duration(milliseconds: 10),
-              () => Navigator.of(context)
-                  .pushReplacementNamed(snapshot.data ? '/info' : '/login'));
+          Future.delayed(Duration(milliseconds: 10),
+              () => Navigator.of(context).pushReplacementNamed(snapshot.data));
         }
         return Container(
             color: Colors.teal[300],

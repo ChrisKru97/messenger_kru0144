@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:messenger/pages/list.dart';
+import 'package:messenger/pages/qr.dart';
 import 'package:messenger/pages/splash.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -15,9 +17,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SharedPreferences prefs;
+    AuthResult authData;
     Future<SharedPreferences> savePrefs() async {
       prefs = await SharedPreferences.getInstance();
       return prefs;
+    }
+
+    Future<void> login() async {
+      authData = await _auth.signInAnonymously();
     }
 
     return MaterialApp(
@@ -28,8 +35,10 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/splash',
       routes: <String, WidgetBuilder>{
-        '/splash': (_) => Splash(_auth, savePrefs()),
+        '/splash': (_) => Splash(login(), savePrefs()),
         '/login': (_) => Login(prefs),
+        '/qr': (_) => QR(prefs, authData.user.uid),
+        '/list': (_) => List(prefs),
         '/info': (_) => Info()
       },
     );
