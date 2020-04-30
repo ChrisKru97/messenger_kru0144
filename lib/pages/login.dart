@@ -45,6 +45,7 @@ class Login extends StatelessWidget {
                   ),
                   onPressed: () {
                     _prefs.setString('username', _usernameController.text);
+                    Navigator.of(context).pushReplacementNamed('/qr');
                   },
                 ),
               )

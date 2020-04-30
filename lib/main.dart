@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:messenger/pages/list.dart';
+import 'package:messenger/pages/friend_list.dart';
 import 'package:messenger/pages/qr.dart';
 import 'package:messenger/pages/splash.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
 
     Future<void> login() async {
       authData = await _auth.signInAnonymously();
+      print(authData.user.uid);
     }
 
     return MaterialApp(
@@ -38,7 +39,7 @@ class MyApp extends StatelessWidget {
         '/splash': (_) => Splash(login(), savePrefs()),
         '/login': (_) => Login(prefs),
         '/qr': (_) => QR(prefs, authData.user.uid),
-        '/list': (_) => List(prefs),
+        '/list': (_) => FriendList(prefs),
         '/info': (_) => Info()
       },
     );
