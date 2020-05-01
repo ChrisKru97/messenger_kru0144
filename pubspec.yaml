@@ -1,10 +1,10 @@
 name: messenger
-description: A new Flutter project.
+description: Encrypted messenger
 
 version: 1.0.0+1
 
 environment:
-  sdk: ^2.6.0
+  sdk: ^2.7.2
 
 dependencies:
   flutter:
@@ -12,12 +12,14 @@ dependencies:
   google_fonts: any
   firebase_core: any
   firebase_auth: any
+  cloud_firestore: any
+#  firebase_messaging: any
   qr_flutter: any
   shared_preferences: any
   encrypt: any
   device_info: any
-  qr_mobile_vision: 0.3.1
-  firebase_messaging: any
+  qr_mobile_vision: any
+  demoji: any
 
 dev_dependencies:
   flutter_test:

@@ -28,6 +28,7 @@ class Login extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 50),
                 child: TextField(
                   controller: _usernameController,
+                  style: TextStyle(fontSize: fontSize),
                   decoration: InputDecoration(
                       focusedBorder: border,
                       enabledBorder: border,

@@ -40,6 +40,7 @@ class ScanButton extends StatelessWidget {
                       width: MediaQuery.of(context).size.width * 0.9,
                       height: MediaQuery.of(context).size.height * 0.8,
                       child: QrCamera(qrCodeCallback: (String value) {
+                        print(value);
                         final data = value.split('::');
                         if (data.length == 3) {
                           final newList = prefs.containsKey('friends')
@@ -56,7 +57,7 @@ class ScanButton extends StatelessWidget {
                             });
                             prefs.setString('friends', jsonEncode(newList));
                           }
-                          Navigator.of(context).pushReplacementNamed('/list');
+                          Navigator.of(context).pushReplacementNamed('/home');
                         }
                       })),
                 )),
