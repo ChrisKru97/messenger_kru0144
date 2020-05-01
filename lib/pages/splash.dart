@@ -32,8 +32,6 @@ class Splash extends StatelessWidget {
     }
     print(prefs.getString('username'));
     print(prefs.getString('key'));
-//    prefs.setString('friends',
-//        '[{"username":"Christian","id":"GxySXnG6eBSABackrKQAHVLL2np2","key":"06B8oYb4zgR8XO0PewJ2vz1xk3Zr2XCAPNuiuGoYwIfDCPQkor1RyA5xKGOUAxBF"},{"username":"Mirka","id":"GxySnG6eBSABackrKQAHVLL2np2","key":"0B8oYb4zgR8XO0PewJ2vz1x3Zr2XCAPNuiuGoYwIfDCPQkor1RyA5xKGOUAxBF"},{"username":"Roman","id":"GxySXnG6eBSBackrKQAHVLL2np2","key":"06BoYb4zgR8XO0Pewvz1xk3Zr2XCAPNuiuGoYwIfDCPQkor1RyA5xKGOAxBF"},{"username":"Zdeno","id":"GxySXnGABackrKQAHVLL2np2","key":"06BoYb4zgR8XO0PewJ2vzZr2XCAPNuiuGoYwIfDCPQkor1RyA5xKGOUAxBF"}]');
     if (!prefs.containsKey('friends')) {
       return '/qr';
     }

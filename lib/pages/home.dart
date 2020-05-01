@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:messenger/classes/friend.dart';
 import 'package:messenger/home_components/friend_item.dart';
 import 'package:messenger/components/logo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
